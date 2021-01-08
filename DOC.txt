@@ -1,0 +1,6 @@
+数据库相关
+MAC mariadb启动命令
+mysql.server start
+
+建库
+CREATE DATABASE IF NOT EXISTS yueke2021 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
