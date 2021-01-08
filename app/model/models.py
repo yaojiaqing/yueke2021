@@ -11,9 +11,12 @@
 """
 from app import db
 from flask_security import RoleMixin, UserMixin, current_user
-from flask import request, url_for, redirect, abort
 from flask_admin.contrib.sqla import ModelView
 from sqlalchemy import text
+from flask import request, abort, redirect, url_for
+from flask_ckeditor import CKEditorField
+from flask_admin import form
+from jinja2 import Markup
 
 # 定义模型
 roles_users = db.Table('roles_users',
@@ -87,7 +90,6 @@ class MVmenutypes(MyModelView):
         'menu_type_name':'菜品类型名称',
         'menu_type_desc':'菜品类型描述',
         'menu_type_type':'备注',
-        'images':'产品图片',
     }
     column_list = ('menu_type_id', 'menu_type_name', 'menu_type_desc', 'menu_type_type')
     def __init__(self, session, **kwargs):
@@ -117,6 +119,25 @@ class Menu(db.Model):
         return '<Menu %r>' % self.menu_name
 
 class MVmenu(MyModelView):
+
+    form_overrides = {'menu_desc': CKEditorField}  # 重写表单字段，将 text 字段设为 CKEditorField
+    create_template = 'edit.html'  # 指定创建记录的模板
+    edit_template = 'edit.html'  # 指定编辑记录的模板
+
+    def _list_thumbnail(view, context, model, name):
+        if not model.images:
+            return ''
+
+        imagelist_url = ''
+
+        for image in model.images:
+            imagelist_url = imagelist_url + Markup('<img src="%s">' % url_for('static',
+                                                                              filename='files/'+form.thumbgen_filename(image.path)))
+        return imagelist_url
+
+    column_formatters = {
+        'images': _list_thumbnail
+    }
 
     column_labels = {
         'menu_id':'菜品编码',
