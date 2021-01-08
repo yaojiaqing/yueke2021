@@ -12,8 +12,6 @@
 from flask import Flask
 from flask_sqlalchemy import  SQLAlchemy
 from app.config import Config
-from flask_security import Security, SQLAlchemyUserDatastore
-from app.model.models import User, Role
 from flask_bootstrap import Bootstrap
 
 db = SQLAlchemy()
@@ -21,10 +19,6 @@ bootstrap = Bootstrap()
 
 def create_app():
     app = Flask(__name__, template_folder="../templates", static_folder="../static")
-
-    # 设置 Flask-Security
-    user_datastore = SQLAlchemyUserDatastore(db, User, Role)
-    security = Security(app, user_datastore)
 
     bootstrap.init_app(app)
 

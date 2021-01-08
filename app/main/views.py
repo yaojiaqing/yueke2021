@@ -17,6 +17,8 @@ from . import main
 def index():
     return render_template('main/index.html')
 
+"""
 @main.route("/favicon.ico")
 def favicon():
     return main.send_static_file("main/favicon.ico")
+"""
