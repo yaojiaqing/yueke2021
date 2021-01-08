@@ -13,7 +13,7 @@ import os
 import os.path as op
 
 from app import create_app, db
-from app.model.models import User, Role, Image, MyModelView
+from app.model.models import User, Role, Image, MyModelView, MVmenu, MVmenutypes
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 from flask_babelex import Babel
@@ -74,7 +74,10 @@ class MVimage(ImageView):
     def __init__(self, session, **kwargs):
         super(MVimage, self).__init__(Image, session, **kwargs)
 
-admin = Admin(app, name='粤客小厨后台管理系统', base_template='my_master.html', template_mode='bootstrap4')
+admin = Admin(app, name='粤客小厨后台管理系统', base_template='my_master.html', template_mode='bootstrap3')
+admin.add_view(MVmenutypes(db.session, name=' 菜品类型'))
+admin.add_view(MVmenu(db.session, name='菜品'))
+admin.add_view(MVimage(db.session, name='上传图片'))
 
 # define a context processor for merging flask-admin's template context into the
 # flask-security views.
