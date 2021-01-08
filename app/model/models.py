@@ -104,15 +104,14 @@ class Menu(db.Model):
     menu_name = db.Column(db.String(80), unique=True, nullable=False)
     menu_desc = db.Column(db.Text(200))
     create_datetime = db.Column(db.TIMESTAMP(timezone=False), nullable=False, server_default=text("CURRENT_TIMESTAMP"))
-    type_id = db.Column(db.Integer, db.ForeignKey('menutypes.menu_type_id')) #菜品分类
     is_bossintro = db.Column(db.Boolean, default=False, server_default=text('0')) #是否老板推荐
     is_new = db.Column(db.Boolean, default=False, server_default=text('0')) #是否新品
     is_active = db.Column(db.Boolean, default=False, server_default=text('0')) #是否正在销售菜品
     price_now = db.Column(db.Float,nullable=False, default=28) #菜品单价
     menu_unit = db.Column(db.String(10), default="份") #单位：盘，客，例等
-    images = db.relationship('Image', backref='menus') #菜品配图
     image_id = db.Column(db.ForeignKey(Image.id)) #主配图
-
+    images = db.relationship('Image', backref='menus') #菜品配图
+    type_id = db.Column(db.Integer, db.ForeignKey('menutypes.menu_type_id')) #菜品分类
     type_name = db.relationship('Menutype', backref=db.backref('menutypes'), lazy='select')
 
     def __repr__(self):
@@ -130,9 +129,10 @@ class MVmenu(MyModelView):
 
         imagelist_url = ''
 
-        for image in model.images:
-            imagelist_url = imagelist_url + Markup('<img src="%s">' % url_for('static',
-                                                                              filename='files/'+form.thumbgen_filename(image.path)))
+        #for image in model.images:
+        imagelist_url = imagelist_url + Markup('<img src="%s">' % url_for('static',
+                                                                            filename='files/'+form.thumbgen_filename(model.images.path)))
+
         return imagelist_url
 
     column_formatters = {

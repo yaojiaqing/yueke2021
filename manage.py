@@ -64,6 +64,7 @@ class ImageView(MyModelView):
     }
 
 class MVimage(ImageView):
+
     column_labels = {
         'id': '序号',
         'name': '图片说明',
