@@ -4,3 +4,17 @@ mysql.server start
 
 建库
 CREATE DATABASE IF NOT EXISTS yueke2021 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+
+建立用户和角色
+user_role = Role(name='user')
+super_user_role = Role(name='superuser')
+db.session.add(user_role)
+db.session.add(super_user_role)
+db.session.commit()
+
+from flask_security.utils import encrypt_password
+from flask_security import SQLAlchemyUserDatastore, Security
+user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+security = Security(app, user_datastore)
+test_user = user_datastore.create_user(name='Admin', email='admin@123.com', password=encrypt_password('Ykxc2019'), roles=[user_role, super_user_role])
+db.session.commit()
