@@ -1,0 +1,55 @@
+<!--pages/menu/menu.wxml-->
+<!-- <view class='container'>
+  <content-title name='粤客菜单' describe='纯正的广式美食'>
+      <l-tabs bind:linchange="changeTabs" l-class-header-line="header-line" equal-width="{{false}}" scrollable aminmated-for-line="{{true}}">
+        <block wx:for="{{list}}" wx:key="menu_type_id" data-item="item" wx:for-index="idx">
+
+          <l-tabpanel tab="{{item.menu_type_name}}" key="{{idx}}" slot="{{idx}}">
+            <view class="tab-content"> {{item.menu_type_name}} </view>
+          </l-tabpanel>
+        </block>
+ 
+      </l-tabs>
+  </content-title>
+</view> -->
+<view class='container'>
+  <content-title name="Tabs" describe="标签页">
+    <content-card l-content="content" name="非等宽标签">
+      <l-tabs bind:linchange="changeTabs" l-class-header-line="header-line" equal-width="{{false}}" scrollable aminmated-for-line="{{true}}">
+        <l-tabpanel tab="精选" key="one" slot="one">
+          <view class="tab-content">精选</view>
+        </l-tabpanel>
+        <l-tabpanel tab="居家生活" key="two" slot="two">
+          <view class="tab-content">居家生活</view>
+        </l-tabpanel>
+        <l-tabpanel tab="美食厨房" key="three" slot="three">
+          <view class="tab-content">美食厨房</view>
+        </l-tabpanel>
+        <l-tabpanel tab="美妆护肤" key="four" slot="four">
+          <view class="tab-content">美妆</view>
+        </l-tabpanel>
+        <l-tabpanel tab="运动女装" key="five" slot="five">
+          <view class="tab-content">运动女装</view>
+        </l-tabpanel>
+        <l-tabpanel tab="家用电器" key="six" slot="six">
+          <view class="tab-content">家用电器</view>
+        </l-tabpanel>
+        <l-tabpanel tab="厨房用品" key="seven" slot="seven">
+          <view class="tab-content">厨房用品</view>
+        </l-tabpanel>
+        <l-tabpanel tab="卫生清洁" key="eight" slot="eight">
+          <view class="tab-content">卫生清洁</view>
+        </l-tabpanel>
+      </l-tabs>
+    </content-card>
+
+    <content-card l-content="content" name="图片标签">
+      <l-tabs bind:linchange="changeTabs" aminmated l-class-tabimage="tab-image" has-line="{{false}}">
+        <l-tabpanel wx:for="{{imagesTabs}}" tab="{{item.tab}}" key="{{item.key}}" slot="{{item.key}}" wx:key="{{item.key}}" image="{{item.image}}" pic-placement="{{item.picPlacement}}">
+          <view class="tab-content">{{item.tab}}</view>
+        </l-tabpanel>
+      </l-tabs>
+    </content-card>
+
+  </content-title>
+</view>

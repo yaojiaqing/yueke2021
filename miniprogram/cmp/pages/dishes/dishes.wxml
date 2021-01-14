@@ -1,0 +1,75 @@
+<!--pages/dishes/dishes.wxml-->
+<content-title name='菜单' describe='菜品介绍'>
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="content-name">煲仔饭</view>
+  </view>
+
+  <l-card type="primary" l-class="card" image="/images/dishes/腊味煲仔饭.jpg"
+    title="煲仔饭">
+    <view class="content">
+      煲仔饭也称瓦煲饭，是源于广东广州地区的特色美食，属于粤菜系。种类主要有腊味煲仔饭、香菇滑鸡、豆豉排骨煲仔饭、猪肝、烧鸭、白切鸡等。
+通常把淘好的米放入煲中，量好水量，加盖，把米饭煲至七成熟时加入配料，再转用慢火煲熟。
+用瓦做成的“煲”，在火候控制方面比较灵活，煲出来的饭也较为香口，齿间留香，回味无穷。吃煲仔饭时，记得尝尝饭焦的味道，又香又脆，把热气的饭倒在汤里泡一会儿再吃一样可口。
+    </view>
+  </l-card>
+
+    <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="content-name">姜黄饭</view>
+  </view>
+
+  <l-card type="cover" l-class="card" image="/images/dishes/姜黄饭.jpg"
+    title="姜黄饭">
+    <view class="content">
+    姜黄饭是一道美食，主要食材是印度长米 200公克 水 200㏄ 椰浆...
+    </view>
+  </l-card>
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="content-name">烧腊</view>
+  </view>
+
+  <l-card type="avatar" l-class="card" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549711852726&di=6b454cec0b57f62d46089487454fa56f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201609%2F14%2F20160914062816_SC8KU.jpeg"
+    title="烧腊小百科" describe="18个小时前">
+    <view class="avter-content">
+      烧腊是一种色香味俱全的传统名菜，属于粤菜系。它包括烧鹅、乳鸽、乳猪、叉烧以及一些卤水菜式。烧腊其实分为“烧”和“腊”两种，但是现在人们总是将“烧腊”连在一起叫，都不太在乎种类了。烧腊一般是先用秘制的酱汁腌制一段时间再放到炉里烤，烧鹅、乳猪皮脆，肥美，口味略带广东人喜爱的甜味，是老广记忆深处的美食...
+    </view>
+    <view class="avter-share-container">
+      <view class="like-container">
+        <l-icon name="like" color="#666" size="28" />
+        <view class="number">160喜欢</view>
+      </view>
+      <view class="like-container">
+        <l-icon name="default" color="#666" size="28" />
+        <view class="number">10评论</view>
+      </view>
+    </view>
+    <l-tag  shape="circle" 
+            bg-color="#f3f3f3" 
+            font-color="#3963BC" 
+            slot="more"
+            size="large">+ 收藏</l-tag>
+  </l-card>
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="content-name">粥</view>
+  </view>
+
+  <l-card type="primary" l-class="card" l-img-class="right-card" position="right" image="/images/dishes/生滚牛肉窝蛋粥（背景黑色）.jpg"
+    title="生滚牛肉窝蛋粥">
+    <view class="content">
+      香菇生滚牛肉窝蛋粥是一道美食，主要原料为香菇、牛肉、鸡蛋、淀粉...
+    </view>
+  </l-card>
+
+  <l-card type="primary" l-class="card" l-img-class="right-card" image="/images/dishes/生滚鱼片粥（背景黑色）.jpg"
+    title="生滚鱼片粥">
+    <view class="content">
+      生滚鱼片粥是一道家常菜品，主要制作材料为白米粥、鲩鱼。这道菜品营养丰富，具有补中益气、滋阴润肺、健脾和胃、除烦渴的功效...
+    </view>
+  </l-card>
+
+</content-title>
